@@ -1,5 +1,7 @@
 package _00_Intro_to_Sorting_Algorithms;
 
+import java.util.Random;
+
 import processing.core.PApplet;
 
 /*
@@ -40,20 +42,40 @@ import processing.core.PApplet;
 public class _03_VisualArraySorter extends PApplet {
     static final int WIDTH = 600;
     static final int HEIGHT = 400;
-
+    int[] arr;
+    Random ran = new Random();
     @Override
     public void settings() {
-        
+        size(600,400);
     }
 
+    public void randomize() {
+        for(int i = 0; i < arr.length-1; i++) {
+        	arr[i] = ran.nextInt(HEIGHT);
+        	noStroke();
+        }
+    }
+    
     @Override
     public void setup() {
-        
+        arr = new int[50];
+        for(int i = 0; i < arr.length-1; i++) {
+        	arr[i] = ran.nextInt(HEIGHT);
+        	noStroke();
+        }
     }
 
     @Override
-    public void draw() {
-        
+    public void draw() {       
+    	background(224, 116, 34);
+        fill(33, 196, 91);
+        for(int i = 0; i < arr.length; i++) {
+        	rect(i*(width/arr.length), HEIGHT, WIDTH/arr.length, -arr[i]);
+        }
+        stepSort(arr);
+        if (mousePressed == true) {
+        	randomize();
+        }
     }
 
     static public void main(String[] passedArgs) {
