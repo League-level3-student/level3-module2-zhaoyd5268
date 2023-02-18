@@ -43,15 +43,15 @@ public class ThanosSorter extends Sorter {
 	void sort(int[] arr, SortingVisualizer display) {
 		boolean inorder = false;
 		int pickside;
-		int startpoint = 500;
-		int endpoint = 500;
+		int startpoint = 0;
+		int endpoint = arr.length-1;
+		int mid;
 		Random ran = new Random();
 		while (inorder == false) {
+			inorder = true;
 			for (int i = 0; i < arr.length; i++) {
 				for (int k = 0; k < arr.length - 1; k++) {
-					if (arr[k] < arr[k + 1]) {
-						inorder = true;
-					} else {
+					if (arr[k] > arr[k + 1]) {
 						inorder = false;
 					}
 				}
@@ -60,20 +60,21 @@ public class ThanosSorter extends Sorter {
 			if (inorder == false) {
 				pickside = ran.nextInt(2);
 				if (pickside == 0) {
-					for (int i = startpoint; i < startpoint / 2; i++) {
+					mid = (startpoint+endpoint)/2;
+					for (int i = startpoint; i < mid; i++) {
 						arr[i] = 0;
-						endpoint = arr.length / 2;
 						display.updateDisplay();
 					}
+						startpoint = mid;
 				} else if (pickside == 1) {
-					for (int i = endpoint; i > endpoint / 2; i--) {
+					mid = (startpoint + endpoint)/2;
+					for (int i = endpoint; i > mid; i--) {
 						arr[i] = 0;
-						startpoint = arr.length / 2;
 						display.updateDisplay();
 					}
+					endpoint = mid;
 				}
-			} 
-
+			}
 
 		}
 	}

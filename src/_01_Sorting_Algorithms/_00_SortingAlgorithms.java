@@ -51,7 +51,7 @@ public class _00_SortingAlgorithms {
             break;
         }
         case "Heap":{
-            new SortingVisualizer(new HeapSorter());
+            new SortingVisualizer(new HeapSorterMe());
             break;
         }
         case "Bogo":{

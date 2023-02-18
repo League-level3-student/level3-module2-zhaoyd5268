@@ -21,12 +21,12 @@ public class BogoSorter extends Sorter {
 		boolean inorder = false;
 		Random ran = new Random();
 		while(inorder == false) {
+			inorder = true;
 			for (int i = 0; i < array.length; i++) {
 				for (int k = 0; k < array.length - 1; k++) {
-					if (array[k] < array[k + 1]) {
-						inorder = true;
-					} else {
+					if (array[k] > array[k + 1]) {
 						inorder = false;
+						break;
 					}
 
 				}
