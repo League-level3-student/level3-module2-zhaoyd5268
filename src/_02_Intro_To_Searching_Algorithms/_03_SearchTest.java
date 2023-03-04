@@ -13,13 +13,28 @@ class _03_SearchTest {
     @Test
     public void testLinearSearch() {
         // 1. Use the assertEquals() method to test your linear search method
-        assertEquals(false, true);
+    	String[] food = {"watermelon", "grape", "pumpkin", "orange", "banana"};
+    	assertEquals(-1, _01_LinearSearch.linearSearch(food, "grapefruit"));
+    	
+    	String[] drinks = {"fanta", "sprite", "water", "orange juice", "apple juice"};
+    	assertEquals(2, _01_LinearSearch.linearSearch(drinks, "water"));
+    	
+    	String[] NvidiaGPUs = {"gtx 1050", "rtx 2060", "rtx 4090", "gtx 1670", "rtx 3070"};
+    	assertEquals(4, _01_LinearSearch.linearSearch(NvidiaGPUs, "rtx 3070"));
     }
 
     @Test
     public void testBinarySearch() {
         // 2. Use the assertEquals() method to test your binary search method
         //    remember that the array must be sorted
-        assertEquals(false, true);
+    	String[] food = { "banana", "grape", "orange", "pumpkin","watermelon"};
+    	assertEquals(-1, _01_LinearSearch.linearSearch(food, "grapefruit"));
+    	
+    	String[] drinks = {  "apple juice", "fanta", "orange juice", "sprite", "water"};
+    	assertEquals(4, _01_LinearSearch.linearSearch(drinks, "water"));
+    	
+    	String[] NvidiaGPUs = {"gtx 1050", "gtx 1660", "rtx 2060", "rtx 3070", "rtx 4090"};
+    	assertEquals(3, _01_LinearSearch.linearSearch(NvidiaGPUs, "rtx 3070"));
+
     }
 }
